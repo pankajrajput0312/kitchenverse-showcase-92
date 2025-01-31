@@ -6,6 +6,19 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import ContactSection from "@/components/ContactSection";
+import { 
+  Award, 
+  ChefHat, 
+  Users, 
+  Settings, 
+  Shield, 
+  HeartHandshake, 
+  Star,
+  Wrench,
+  BadgeCheck,
+  ThumbsUp
+} from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
   return (
@@ -117,80 +130,299 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Enhanced Stats Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
-        <Card className="p-8 shadow-xl bg-white/90 backdrop-blur-sm border-t border-rose-100/20">
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { value: "25+", label: "Years Experience", icon: "🏆" },
-              { value: "1000+", label: "Projects Completed", icon: "🎯" },
-              { value: "500+", label: "Happy Clients", icon: "🤝" },
-              { value: "50+", label: "Products", icon: "⚡" }
-            ].map((stat, index) => (
-              <div key={index} 
-                   className="group p-6 bg-rose-50/50 rounded-xl transition-all duration-300
-                            hover:bg-gradient-to-br hover:from-rose-500 hover:to-red-600 
-                            hover:scale-105 hover:-translate-y-1 cursor-pointer">
-                <span className="text-2xl mb-4 block">{stat.icon}</span>
-                <span className="block text-4xl font-bold text-rose-600 mb-2 
-                               group-hover:text-white transition-colors">{stat.value}</span>
-                <span className="text-rose-500/80 group-hover:text-white/90 transition-colors">{stat.label}</span>
+      {/* About Us Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50">
+                <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
+                <span className="text-sm font-medium text-rose-600">About Us</span>
               </div>
-            ))}
-          </div>
-        </Card>
-      </div>
-
-      <FeaturedProducts />
-
-      {/* Enhanced Partners Section */}
-      <div className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-white to-rose-50/50 -z-10" />
-        <div className="absolute inset-0 bg-grid-black/[0.02] -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 rounded-full bg-rose-100 text-rose-600 font-medium mb-4">Our Partners</span>
-            <h2 className="text-4xl font-bold mt-2 mb-4 bg-gradient-to-r from-rose-600 to-red-600 text-transparent bg-clip-text">
-              Trusted By Industry Leaders
-            </h2>
-            <p className="text-rose-600/80 max-w-2xl mx-auto">
-              We collaborate with the best in the industry to deliver exceptional quality and innovation
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {partners.map((partner, index) => (
-              <div key={index} 
-                   className="group bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-2xl 
-                            transition-all duration-300 hover:-translate-y-1 border border-rose-100/20">
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-xl mb-4 flex items-center justify-center relative
-                                before:absolute before:inset-0 before:bg-gradient-to-br 
-                                before:from-rose-50 before:to-white
-                                before:rounded-xl before:opacity-0 before:group-hover:opacity-100 
-                                before:transition-opacity"
-                       style={{ backgroundColor: `${partner.color}10` }}>
-                    {React.createElement(partner.icon as React.ComponentType<{ className?: string; style?: React.CSSProperties }>, {
-                      className: "w-12 h-12 transition-all duration-300 group-hover:scale-110 relative z-10",
-                      style: { color: partner.color }
-                    })}
+              <h2 className="text-4xl font-bold text-gray-900">25+ Years of Excellence in Commercial Kitchen Equipment</h2>
+              <p className="text-lg text-gray-600">
+                Since 1998, Muskan Equipments has been at the forefront of commercial kitchen innovation, 
+                serving diverse industries with premium quality equipment and unmatched expertise.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { number: "25+", label: "Years Experience" },
+                  { number: "1000+", label: "Projects Completed" },
+                  { number: "500+", label: "Regular Clients" },
+                  { number: "50+", label: "Product Categories" },
+                ].map((stat, index) => (
+                  <div key={index} className="bg-rose-50/50 p-4 rounded-xl">
+                    <div className="text-2xl font-bold text-rose-600">{stat.number}</div>
+                    <div className="text-gray-600">{stat.label}</div>
                   </div>
-                  <h3 className="font-semibold text-rose-900">{partner.name}</h3>
+                ))}
+              </div>
+              <Button className="bg-rose-600 hover:bg-rose-700">
+                Learn More About Us
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-2xl overflow-hidden">
+                <img 
+                  src="https://placehold.co/800x800/e2e8f0/1e293b?text=Modern+Factory+Setup" 
+                  alt="Our Factory" 
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center">
+                    <BadgeCheck className="w-6 h-6 text-rose-600" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">ISO Certified</div>
+                    <div className="text-sm text-gray-600">Quality Assured Products</div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Categories Section */}
+      <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-rose-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 mb-4">
+              <span className="text-sm font-medium text-rose-600">Our Products</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Complete Kitchen Equipment Solutions</h2>
+            <p className="text-lg text-gray-600">
+              Explore our wide range of commercial kitchen equipment, designed for efficiency and durability
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: ChefHat,
+                title: "Cooking Equipment",
+                description: "Professional cooking ranges, ovens, and grills",
+                image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Professional+Cooking+Equipment"
+              },
+              {
+                icon: Building2,
+                title: "Bakery Equipment",
+                description: "Specialized equipment for bakeries",
+                image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Bakery+Equipment"
+              },
+              {
+                icon: Settings,
+                title: "Dish Washing Equipment",
+                description: "Industrial dishwashers and cleaning systems",
+                image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Dishwashing+Systems"
+              },
+              {
+                icon: ThumbsUp,
+                title: "Refrigeration",
+                description: "Commercial refrigeration solutions",
+                image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Commercial+Refrigeration"
+              },
+              {
+                icon: Shield,
+                title: "Storage Equipment",
+                description: "Storage and handling solutions",
+                image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Storage+Solutions"
+              }
+            ].map((category, index) => (
+              <Card 
+                key={index} 
+                className="group overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="aspect-[4/3] relative overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="flex items-center gap-3 mb-2">
+                      <category.icon className="w-6 h-6" />
+                      <h3 className="text-xl font-semibold">{category.title}</h3>
+                    </div>
+                    <p className="text-white/90">{category.description}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button className="bg-rose-600 hover:bg-rose-700">
+              View All Products
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 mb-4">
+              <span className="text-sm font-medium text-rose-600">Why Choose Us</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">The Muskan Advantage</h2>
+            <p className="text-lg text-gray-600">
+              Experience excellence in commercial kitchen equipment with our comprehensive solutions
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Quality & Durability",
+                description: "Corrosion-resistant, energy-efficient equipment built to last"
+              },
+              {
+                icon: Settings,
+                title: "Customization",
+                description: "Tailored solutions based on your specific kitchen needs"
+              },
+              {
+                icon: Users,
+                title: "Trusted by Leaders",
+                description: "Preferred choice of top hotels and restaurants"
+              },
+              {
+                icon: HeartHandshake,
+                title: "After-Sales Support",
+                description: "Comprehensive installation and maintenance services"
+              }
+            ].map((feature, index) => (
+              <Card 
+                key={index} 
+                className="p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 
+                         hover:-translate-y-1 bg-gradient-to-br from-rose-50/50 to-white"
+              >
+                <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-6">
+                  <feature.icon className="w-6 h-6 text-rose-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </Card>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Contact Section with Modern Design */}
-      <div className="relative bg-gradient-to-br from-rose-50 via-white to-rose-50">
-        <div className="absolute inset-0 bg-grid-black/[0.02]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <ContactSection />
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-rose-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 mb-4">
+              <span className="text-sm font-medium text-rose-600">Testimonials</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+            <p className="text-lg text-gray-600">
+              Trusted by leading institutions and businesses across India
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                quote: "Exceptional quality equipment that has transformed our kitchen operations.",
+                author: "Executive Chef",
+                company: "Fortune Hotels"
+              },
+              {
+                quote: "Professional service and outstanding product quality. Highly recommended.",
+                author: "Director",
+                company: "IIT Kanpur"
+              },
+              {
+                quote: "Reliable equipment and excellent after-sales support.",
+                author: "F&B Manager",
+                company: "Indian Oil"
+              }
+            ].map((testimonial, index) => (
+              <Card 
+                key={index} 
+                className="p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Star className="w-8 h-8 text-rose-600 mb-6" />
+                <p className="text-gray-600 mb-6">{testimonial.quote}</p>
+                <div>
+                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                  <div className="text-rose-600">{testimonial.company}</div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          {/* Client Logos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            {[
+              "Hotel Chain",
+              "Restaurant Group",
+              "Catering Service",
+              "Educational Institute",
+              "Hospital Group",
+              "Food Service"
+            ].map((client, index) => (
+              <img 
+                key={index}
+                src={`https://placehold.co/200x100/e2e8f0/1e293b?text=${client.replace(' ', '+')}`}
+                alt={`${client} Logo`}
+                className="h-12 object-contain opacity-60 hover:opacity-100 transition-opacity"
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
+      {/* Custom Solutions CTA */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <Card className="bg-gradient-to-br from-rose-600 to-red-700 text-white p-12 border-none">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-4xl font-bold">Make Your Kitchen with Us</h2>
+                <p className="text-lg text-rose-100">
+                  We understand your requirements and customize kitchen equipment to fit your space and needs.
+                  Let's create the perfect kitchen solution together.
+                </p>
+                <Button className="bg-white text-rose-600 hover:bg-rose-50">
+                  Request a Custom Quote
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+              <div className="relative">
+                <Wrench className="w-48 h-48 text-white/10 absolute -top-12 -right-12" />
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    "Custom Dimensions",
+                    "Space Optimization",
+                    "Workflow Planning",
+                    "Energy Efficiency"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 text-rose-100">
+                      <BadgeCheck className="w-5 h-5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Existing Contact Section */}
+      <ContactSection />
+
+      {/* Existing Footer */}
       <footer className="bg-gradient-to-br from-rose-900 to-red-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
