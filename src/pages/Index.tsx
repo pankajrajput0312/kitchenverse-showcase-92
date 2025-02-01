@@ -422,47 +422,7 @@ const HomePage = () => {
       {/* Existing Contact Section */}
       <ContactSection />
 
-      {/* Existing Footer */}
-      <footer className="bg-gradient-to-br from-rose-900 to-red-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-bold text-lg mb-4">About Us</h3>
-              <p className="text-rose-100/80">Leading manufacturer of premium commercial kitchen equipment since 1998.</p>
-            </div>
-            <div>
-              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-rose-100/80">
-                <li className="hover:text-white transition-colors cursor-pointer">Products</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Services</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-lg mb-4">Contact</h3>
-              <ul className="space-y-2 text-rose-100/80">
-                <li>contact@company.com</li>
-                <li>+1 234 567 890</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-lg mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                {/* Social media icons with rose hover effect */}
-                <div className="w-10 h-10 rounded-full bg-white/10 hover:bg-rose-500 
-                              transition-colors duration-300 cursor-pointer"></div>
-                <div className="w-10 h-10 rounded-full bg-white/10 hover:bg-rose-500 
-                              transition-colors duration-300 cursor-pointer"></div>
-                <div className="w-10 h-10 rounded-full bg-white/10 hover:bg-rose-500 
-                              transition-colors duration-300 cursor-pointer"></div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-rose-100/10 mt-8 pt-8 text-center text-rose-100/60">
-            <p>© 2024 Your Company. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };
