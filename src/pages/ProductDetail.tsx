@@ -42,28 +42,19 @@ const ProductDetail = () => {
     );
   }
 
-  // Mock additional images
+  // Use single product image since multiple images aren't available in data
   const productImages = [
     product.image,
-    "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=800&auto=format&fit=crop&q=60",
-    "https://images.unsplash.com/photo-1591457226297-f8b0b8b0a5b9?w=800&auto=format&fit=crop&q=60",
   ];
 
-  const specifications = [
-    { label: "Dimensions", value: "800 x 600 x 850mm" },
-    { label: "Material", value: "Stainless Steel 304" },
-    { label: "Power", value: "3.5 kW" },
-    { label: "Warranty", value: "1 Year" },
-    { label: "Origin", value: "Made in India" },
-  ];
+  // Map specifications from product data
+  const specifications = Object.entries(product.specifications).map(([key, value]) => ({
+    label: key.replace(/([A-Z])/g, ' $1').trim(), // Convert camelCase to spaces
+    value: value
+  }));
 
-  const features = [
-    "Energy efficient design",
-    "Heavy duty construction",
-    "Digital temperature control",
-    "Easy to clean and maintain",
-    "Safety compliance certified",
-  ];
+  // Use features from product data
+  const features = product.features || [];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-rose-50">

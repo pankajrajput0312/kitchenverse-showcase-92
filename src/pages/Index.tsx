@@ -19,6 +19,7 @@ import {
   ThumbsUp
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -86,16 +87,16 @@ const HomePage = () => {
                 delivering innovation and quality since 1998.
               </p>
               <div className="flex gap-4 items-center">
-                <button className="group bg-white text-rose-600 px-8 py-4 rounded-lg font-semibold 
+                <Link to="/products" className="group bg-white text-rose-600 px-8 py-4 rounded-lg font-semibold 
                                  flex items-center gap-2 hover:bg-rose-50 transition-all shadow-lg shadow-rose-500/20">
                   Explore Our Products
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="group px-8 py-4 rounded-lg font-semibold 
+                </Link>
+                <Link to="/contact" className="group px-8 py-4 rounded-lg font-semibold 
                                  flex items-center gap-2 text-white border border-white/20 hover:bg-white/10 transition-all">
                   Contact Sales
                   <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:animate-ping"></span>
-                </button>
+                </Link>
               </div>
             </div>
 
