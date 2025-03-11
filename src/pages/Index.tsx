@@ -45,7 +45,7 @@ const HomePage = () => {
         </div>
 
         <div className="relative min-h-[100dvh] flex items-center w-full">
-          <div className="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-0">
+          <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-0">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left Content */}
               <div className="animate-fade-in-up max-w-3xl mx-auto w-full text-center md:text-left">
@@ -89,9 +89,17 @@ const HomePage = () => {
                     Explore Our Products
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                  <Link to="/contact" className="group bg-transparent hover:bg-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
-                                   font-semibold flex items-center justify-center gap-2 border-2 border-white/30
-                                   transition-all duration-200">
+                  <Link 
+                    to="/contact" 
+                    className="group bg-transparent hover:bg-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
+                               font-semibold flex items-center justify-center gap-2 border-2 border-white/30
+                               transition-all duration-200"
+                    onClick={(e) => {
+                      // Remove the console.log and ensure the event doesn't interfere with navigation
+                      console.log('Contact link clicked');
+                      e.stopPropagation();
+                    }}
+                  >
                     Contact Sales
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 animate-ping"></span>
@@ -135,7 +143,7 @@ const HomePage = () => {
 
       {/* About Us Section */}
       <section className="py-20 bg-white w-full">
-        <div className="w-full px-4">
+        <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50">
@@ -188,12 +196,14 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Product Categories Section */}
       <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-rose-50">
-        <div className="container mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 mb-4">
+            <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
+
               <span className="text-sm font-medium text-rose-600">Our Products</span>
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Complete Kitchen Equipment Solutions</h2>
@@ -269,9 +279,11 @@ const HomePage = () => {
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 mb-4">
+            <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
+
               <span className="text-sm font-medium text-rose-600">Why Choose Us</span>
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">The Muskan Advantage</h2>
@@ -319,11 +331,50 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Custom Solutions CTA */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <Card className="bg-gradient-to-br from-rose-600 to-red-700 text-white p-12 border-none">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-4xl font-bold">Make Your Kitchen with Us</h2>
+                <p className="text-lg text-rose-100">
+                  We understand your requirements and customize kitchen equipment to fit your space and needs.
+                  Let's create the perfect kitchen solution together.
+                </p>
+                <Button className="bg-white text-rose-600 hover:bg-rose-50">
+                  Request a Custom Quote
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+              <div className="relative">
+                <Wrench className="w-48 h-48 text-white/10 absolute -top-12 -right-12" />
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    "Custom Dimensions",
+                    "Space Optimization",
+                    "Workflow Planning",
+                    "Energy Efficiency"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 text-rose-100">
+                      <BadgeCheck className="w-5 h-5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-rose-50">
-        <div className="container mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 mb-4">
+            <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
+
               <span className="text-sm font-medium text-rose-600">Testimonials</span>
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
@@ -385,42 +436,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Custom Solutions CTA */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <Card className="bg-gradient-to-br from-rose-600 to-red-700 text-white p-12 border-none">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-4xl font-bold">Make Your Kitchen with Us</h2>
-                <p className="text-lg text-rose-100">
-                  We understand your requirements and customize kitchen equipment to fit your space and needs.
-                  Let's create the perfect kitchen solution together.
-                </p>
-                <Button className="bg-white text-rose-600 hover:bg-rose-50">
-                  Request a Custom Quote
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-              <div className="relative">
-                <Wrench className="w-48 h-48 text-white/10 absolute -top-12 -right-12" />
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    "Custom Dimensions",
-                    "Space Optimization",
-                    "Workflow Planning",
-                    "Energy Efficiency"
-                  ].map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2 text-rose-100">
-                      <BadgeCheck className="w-5 h-5" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
 
       {/* Existing Contact Section */}
       <ContactSection />
