@@ -270,36 +270,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Contact Section */}
-      <Card className="p-8 mb-12 shadow-lg bg-gradient-to-r from-primary/10 to-primary/5">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="flex items-center gap-4">
-            <Phone className="w-10 h-10 text-primary p-2 bg-white rounded-full" />
-            <div>
-              <h3 className="font-semibold text-gray-900">Phone</h3>
-              <p className="text-gray-600">[Your Phone Number]</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <Mail className="w-10 h-10 text-primary p-2 bg-white rounded-full" />
-            <div>
-              <h3 className="font-semibold text-gray-900">Email</h3>
-              <p className="text-gray-600">[Your Email]</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <MapPin className="w-10 h-10 text-primary p-2 bg-white rounded-full" />
-            <div>
-              <h3 className="font-semibold text-gray-900">Address</h3>
-              <p className="text-gray-600">[Your Address]</p>
-            </div>
-          </div>
-        </div>
-      </Card>
-
-      {/* Add Footer at the end */}
-      <Footer />
+      
     </div>
   );
 };
