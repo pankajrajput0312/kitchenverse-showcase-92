@@ -16,8 +16,17 @@ const Navigation = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <span className="text-2xl font-bold text-primary">MuskanEquipments.in</span>
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <img 
+              src="/logos/muskan-equipments-logo.png" 
+              alt="Muskan Equipments Logo" 
+              className="w-8 h-8 object-contain"
+            />
+            <div className="flex items-center">
+              <span className="text-primary text-xl font-bold">
+                <span className="text-red-600">Muskan</span>Equipments.in
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
