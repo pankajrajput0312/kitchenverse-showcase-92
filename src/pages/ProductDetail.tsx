@@ -15,13 +15,29 @@ import {
   Phone,
   Mail,
   Clock,
-  Truck 
+  Truck,
+  CheckCircle2
 } from 'lucide-react';
 import { products } from '@/data/products';
+import { useToast } from "@/components/ui/use-toast";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import ProductEnquiryForm from '@/components/ProductEnquiryForm';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [activeImage, setActiveImage] = useState(0);
+  const { toast } = useToast();
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    productName: ''
+  });
   
   // Find the product based on the ID
   const product = products.find(p => p.id === Number(id));
@@ -142,10 +158,7 @@ const ProductDetail = () => {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <Button className="w-full bg-rose-600 hover:bg-rose-700 h-12">
-                    Request Quote
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+                  <ProductEnquiryForm productName={product.title} />
                   <Button variant="outline" className="w-full border-rose-200 text-rose-600 hover:bg-rose-50 h-12">
                     Download Brochure
                   </Button>

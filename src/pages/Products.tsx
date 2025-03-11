@@ -19,6 +19,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { products } from '@/data/products';
+import ProductEnquiryForm from '@/components/ProductEnquiryForm';
 
 // Product categories
 const categories = [
@@ -88,16 +89,7 @@ const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [showInStockOnly, setShowInStockOnly] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(true);
-  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    productName: ''
-  });
-  const [showSuccess, setShowSuccess] = useState(false);
 
   // Filter products based on selected criteria
   const filteredProducts = products.filter((product) => {
@@ -114,31 +106,6 @@ const Products = () => {
 
     return matchesSearch && matchesCategory && matchesFeatures && matchesStock;
   });
-
-  const handleAddToInquiry = (productId: number) => {
-    toast({
-      title: "Added to Inquiry",
-      description: "We'll get back to you soon with a quote.",
-    });
-  };
-
-  const handleEnquiry = (productName: string) => {
-    setSelectedProduct(productName);
-    setFormData(prev => ({ ...prev, productName }));
-    setIsEnquiryOpen(true);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    setIsEnquiryOpen(false);
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 5000);
-    toast({
-      title: "Enquiry Submitted Successfully!",
-      description: "Our team will contact you within 24 hours.",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-rose-50">
@@ -426,14 +393,12 @@ const Products = () => {
                             View Details
                           </Button>
                         </Link>
-                        <Button
-                          onClick={() => handleEnquiry(product.title)}
-                          className="w-full bg-rose-600 hover:bg-rose-700 text-white h-11
-                                   flex items-center justify-center gap-2 group"
-                        >
-                          Add to Inquiry
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        <ProductEnquiryForm 
+                          productName={product.title}
+                          buttonLabel="Add to Inquiry"
+                          buttonClassName="w-full bg-rose-600 hover:bg-rose-700 text-white h-11 flex items-center justify-center gap-2 group"
+                          buttonIcon={<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
+                        />
                       </div>
                     </CardContent>
                   </Card>
@@ -449,93 +414,6 @@ const Products = () => {
           </div>
         </div>
       </div>
-
-      {/* Enquiry Form Dialog */}
-      <Dialog open={isEnquiryOpen} onOpenChange={setIsEnquiryOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Product Enquiry</DialogTitle>
-            <DialogDescription>
-              Fill in your details and we'll get back to you within 24 hours.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit}>
-            <div className="grid gap-4 py-4">
-              <div className="grid gap-2">
-                <Label htmlFor="product">Product</Label>
-                <Input id="product" value={selectedProduct} disabled />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="name">Name</Label>
-                <Input 
-                  id="name" 
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="phone">Phone</Label>
-                <Input 
-                  id="phone" 
-                  type="tel" 
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="message">Message (Optional)</Label>
-                <Textarea 
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                />
-              </div>
-            </div>
-            <DialogFooter>
-              <Button type="submit" className="bg-rose-600 hover:bg-rose-700">
-                Submit Enquiry
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
-
-      {/* Success Message Dialog */}
-      <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
-        <DialogContent className="sm:max-w-[425px]">
-          <div className="text-center py-4">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle2 className="w-8 h-8 text-green-600" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
-            <p className="text-gray-600 mb-4">
-              Our team will contact you within 24 hours.
-            </p>
-            <div className="flex flex-col gap-2 text-gray-600">
-              <div className="flex items-center justify-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>+1 234 567 890</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>contact@company.com</span>
-              </div>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };

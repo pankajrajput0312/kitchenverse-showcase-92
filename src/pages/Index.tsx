@@ -88,14 +88,18 @@ const HomePage = () => {
               </p>
               <div className="flex gap-4 items-center">
                 <Link to="/products" className="group bg-white text-rose-600 px-8 py-4 rounded-lg font-semibold 
-                                 flex items-center gap-2 hover:bg-rose-50 transition-all shadow-lg shadow-rose-500/20">
+                                 flex items-center gap-2 hover:bg-rose-50 transition-all shadow-lg shadow-rose-500/20 cursor-pointer">
                   Explore Our Products
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/contact" className="group px-8 py-4 rounded-lg font-semibold 
-                                 flex items-center gap-2 text-white border border-white/20 hover:bg-white/10 transition-all">
+                <Link to="/contact" className="group bg-transparent hover:bg-white/20 text-white px-8 py-4 rounded-lg 
+                                 font-semibold flex items-center gap-2 border-2 border-white/30
+                                 transition-all duration-200 cursor-pointer">
                   Contact Sales
-                  <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:animate-ping"></span>
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 animate-ping"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                  </span>
                 </Link>
               </div>
             </div>
@@ -365,18 +369,18 @@ const HomePage = () => {
           {/* Client Logos */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
             {[
-              "Hotel Chain",
-              "Restaurant Group",
-              "Catering Service",
-              "Educational Institute",
-              "Hospital Group",
-              "Food Service"
-            ].map((client, index) => (
+              { src: "/logos/clients/btw.png", alt: "BTW Logo" },
+              { src: "/logos/clients/DRDO.png", alt: "DRDO Logo" },
+              { src: "/logos/clients/indian_air_force.png", alt: "Indian Air Force Logo" },
+              { src: "/logos/clients/indian_oil.png", alt: "Indian Oil Logo" },
+              { src: "/logos/clients/ntpc.png", alt: "NTPC Logo" },
+              { src: "/logos/clients/parle.png", alt: "Parle Logo" }
+            ].map((logo, index) => (
               <img 
                 key={index}
-                src={`https://placehold.co/200x100/e2e8f0/1e293b?text=${client.replace(' ', '+')}`}
-                alt={`${client} Logo`}
-                className="h-12 object-contain opacity-60 hover:opacity-100 transition-opacity"
+                src={logo.src}
+                alt={logo.alt}
+                className="h-20 object-contain opacity-100 hover:opacity-100 transition-opacity"
               />
             ))}
           </div>
