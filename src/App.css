@@ -1,8 +1,5 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -160,8 +157,11 @@
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto;
-    width: min(100% - 2rem, 80rem);
+    @apply mx-auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

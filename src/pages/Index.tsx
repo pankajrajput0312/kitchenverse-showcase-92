@@ -23,20 +23,20 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen w-full bg-gradient-to-b from-gray-50 to-gray-100 overflow-x-hidden">
       <div className="absolute inset-0 bg-grid-black/[0.02] -z-10" />
       <Navigation />
       
       {/* Hero Section with Enhanced Design */}
-      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-rose-500 via-red-500 to-red-600">
+      <div className="relative min-h-[100dvh] w-full overflow-hidden bg-gradient-to-br from-rose-500 via-red-500 to-red-600">
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-rose-900/50" />
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-rose-400/30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute top-1/2 -left-40 w-[600px] h-[600px] bg-red-400/20 rounded-full blur-3xl animate-pulse delay-700" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-orange-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute -top-40 -right-40 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-rose-400/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -left-40 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-red-400/20 rounded-full blur-3xl animate-pulse delay-700" />
+          <div className="absolute bottom-0 right-0 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-orange-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
           {/* Decorative Lines */}
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent animate-slide" />
@@ -44,85 +44,83 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="relative h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="animate-fade-in-up max-w-3xl">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="group relative inline-block">
-                  <span className="inline-flex items-center gap-2 text-rose-100 text-lg font-medium px-4 py-2 
-                                 border border-rose-200/20 rounded-full bg-white/5 backdrop-blur-sm
-                                 hover:bg-white/10 transition-all cursor-pointer">
-                    <span className="inline-block w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
-                    Premium Kitchen Equipment
-                    <svg className="w-4 h-4 text-rose-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </span>
-                  
-                  {/* Tooltip */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-72 opacity-0 
-                                group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="relative bg-white/10 backdrop-blur-md p-4 rounded-xl 
-                                  border border-rose-200/20 shadow-xl">
-                      <div className="text-sm text-rose-100 font-normal">
-                        Discover our range of high-quality commercial kitchen equipment, 
-                        designed for professional kitchens and food service establishments.
+        <div className="relative min-h-[100dvh] flex items-center w-full">
+          <div className="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-0">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Left Content */}
+              <div className="animate-fade-in-up max-w-3xl mx-auto w-full text-center md:text-left">
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="group relative inline-block">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 
+                                 backdrop-blur-sm border border-white/20 text-white mb-4">
+                      <span className="w-2 h-2 rounded-full bg-rose-200 animate-pulse"></span>
+                      <span className="text-xs sm:text-sm font-medium">Premium Kitchen Equipment</span>
+                    </div>
+                    
+                    {/* Tooltip */}
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-72 opacity-0 
+                                  group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="relative bg-white/10 backdrop-blur-md p-4 rounded-xl 
+                                    border border-rose-200/20 shadow-xl">
+                        <div className="text-sm text-rose-100 font-normal">
+                          Discover our range of high-quality commercial kitchen equipment, 
+                          designed for professional kitchens and food service establishments.
+                        </div>
+                        {/* Tooltip Arrow */}
+                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 
+                                      border-8 border-transparent border-t-white/10"></div>
                       </div>
-                      {/* Tooltip Arrow */}
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 
-                                    border-8 border-transparent border-t-white/10"></div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <h1 className="text-7xl font-bold mb-6 text-white leading-tight">
-                Crafting Excellence in
-                <span className="block mt-2 bg-gradient-to-r from-rose-100 to-rose-200 text-transparent bg-clip-text">
-                  Commercial Kitchens
-                </span>
-              </h1>
-              <p className="text-xl text-rose-100 max-w-2xl mb-8 leading-relaxed">
-                Leading manufacturer of premium commercial kitchen and canteen equipment, 
-                delivering innovation and quality since 1998.
-              </p>
-              <div className="flex gap-4 items-center">
-                <Link to="/products" className="group bg-white text-rose-600 px-8 py-4 rounded-lg font-semibold 
-                                 flex items-center gap-2 hover:bg-rose-50 transition-all shadow-lg shadow-rose-500/20 cursor-pointer">
-                  Explore Our Products
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link to="/contact" className="group bg-transparent hover:bg-white/20 text-white px-8 py-4 rounded-lg 
-                                 font-semibold flex items-center gap-2 border-2 border-white/30
-                                 transition-all duration-200 cursor-pointer">
-                  Contact Sales
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 animate-ping"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                  Crafting Excellence in
+                  <span className="block mt-2 bg-gradient-to-r from-rose-100 to-rose-200 text-transparent bg-clip-text">
+                    Commercial Kitchens
                   </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Content - Feature Cards */}
-            <div className="hidden md:grid grid-cols-2 gap-4 animate-fade-in-up delay-200">
-              {[
-                { title: "Quality First", desc: "Premium grade materials", icon: "🌟" },
-                { title: "Custom Design", desc: "Tailored solutions", icon: "✨" },
-                { title: "Expert Support", desc: "24/7 assistance", icon: "💫" },
-                { title: "Fast Delivery", desc: "Nationwide shipping", icon: "⚡" }
-              ].map((feature, index) => (
-                <div key={index} 
-                     className="group bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 
-                              hover:bg-white/20 transition-all duration-300 cursor-pointer
-                              hover:scale-105 hover:shadow-lg hover:shadow-rose-500/10">
-                  <span className="text-2xl mb-3 block">{feature.icon}</span>
-                  <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-rose-100/80 text-sm">{feature.desc}</p>
-                  <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-rose-100/40 to-transparent 
-                                transition-all duration-300 mt-4 rounded-full" />
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-rose-100 max-w-2xl mb-8 leading-relaxed">
+                  Leading manufacturer of premium commercial kitchen and canteen equipment, 
+                  delivering innovation and quality since 1998.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                  <Link to="/products" className="group bg-white text-rose-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold 
+                                   flex items-center justify-center gap-2 hover:bg-rose-50 transition-all shadow-lg shadow-rose-500/20">
+                    Explore Our Products
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link to="/contact" className="group bg-transparent hover:bg-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
+                                   font-semibold flex items-center justify-center gap-2 border-2 border-white/30
+                                   transition-all duration-200">
+                    Contact Sales
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 animate-ping"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                    </span>
+                  </Link>
                 </div>
-              ))}
+              </div>
+
+              {/* Right Content - Feature Cards */}
+              <div className="hidden md:grid grid-cols-2 gap-4 animate-fade-in-up delay-200">
+                {[
+                  { title: "Quality First", desc: "Premium grade materials", icon: "🌟" },
+                  { title: "Custom Design", desc: "Tailored solutions", icon: "✨" },
+                  { title: "Expert Support", desc: "24/7 assistance", icon: "💫" },
+                  { title: "Fast Delivery", desc: "Nationwide shipping", icon: "⚡" }
+                ].map((feature, index) => (
+                  <div key={index} 
+                       className="group bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 
+                                hover:bg-white/20 transition-all duration-300 cursor-pointer
+                                hover:scale-105 hover:shadow-lg hover:shadow-rose-500/10">
+                    <span className="text-2xl mb-3 block">{feature.icon}</span>
+                    <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-rose-100/80 text-sm">{feature.desc}</p>
+                    <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-rose-100/40 to-transparent 
+                                  transition-all duration-300 mt-4 rounded-full" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -136,8 +134,8 @@ const HomePage = () => {
       </div>
 
       {/* About Us Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-white w-full">
+        <div className="w-full px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50">
